@@ -26,23 +26,43 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative px-4 md:px-8 overflow-hidden">
-      {/* Background Elements */}
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-40"></div>
-        <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl opacity-60 animate-pulse-subtle"></div>
+        <div className="absolute bottom-40 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-50 animate-[pulse_8s_ease-in-out_infinite]"></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl opacity-40 animate-[pulse_12s_ease-in-out_infinite]"></div>
+        
+        {/* Animated particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div 
+              key={i}
+              className="absolute rounded-full bg-primary/30"
+              style={{
+                width: `${Math.random() * 8 + 2}px`,
+                height: `${Math.random() * 8 + 2}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.5 + 0.3,
+                animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            ></div>
+          ))}
+        </div>
       </div>
 
       <div className="container max-w-5xl mx-auto z-10">
         <div className="flex flex-col items-center text-center space-y-6">
           <p className={cn(
-            "text-lg md:text-xl text-primary/80 font-medium opacity-0",
+            "text-lg md:text-xl text-primary font-medium opacity-0",
             isVisible && "animate-fade-in [animation-delay:200ms]"
           )}>
             Hello, I'm
           </p>
           
           <h1 className={cn(
-            "text-4xl md:text-6xl lg:text-7xl font-bold font-display opacity-0",
+            "text-4xl md:text-6xl lg:text-7xl font-bold font-display opacity-0 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary",
             isVisible && "animate-fade-in [animation-delay:400ms]"
           )}>
             Pruthvi Navalur
@@ -75,13 +95,13 @@ const Hero = () => {
           )}>
             <button 
               onClick={() => scrollToContact()}
-              className="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors"
+              className="px-6 py-3 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
             >
               Let's Build Together
             </button>
             <a 
               href="#projects" 
-              className="px-6 py-3 bg-muted/40 hover:bg-muted/60 backdrop-blur text-foreground font-medium rounded-lg transition-colors"
+              className="px-6 py-3 bg-muted/40 hover:bg-muted/60 backdrop-blur text-foreground font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md"
             >
               Explore My Work
             </a>
@@ -95,7 +115,7 @@ const Hero = () => {
           <div className="flex flex-col items-center">
             <p className="text-sm text-foreground/50 mb-2">Scroll to explore</p>
             <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center">
-              <div className="w-1.5 h-3 bg-foreground/50 rounded-full mt-2 animate-pulse-subtle"></div>
+              <div className="w-1.5 h-3 bg-foreground/50 rounded-full mt-2 animate-bounce"></div>
             </div>
           </div>
         </div>

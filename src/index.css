@@ -25,7 +25,7 @@
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
 
-    --accent: 199 89% 48%;
+    --accent: 336 80% 58%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -62,11 +62,16 @@
   }
   
   .section-title {
-    @apply font-display text-3xl md:text-4xl font-bold mb-4 md:mb-6;
+    @apply font-display text-3xl md:text-4xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
   }
   
   .section-subtitle {
-    @apply font-display text-xl md:text-2xl font-medium mb-3 md:mb-4;
+    @apply font-display text-xl md:text-2xl font-medium mb-3 md:mb-4 text-foreground relative;
+  }
+  
+  .section-subtitle::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-[2px] w-12 bg-primary;
   }
   
   .animated-gradient-text {
@@ -76,7 +81,7 @@
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2;
   }
   
   .nav-link {
@@ -85,6 +90,16 @@
   
   .nav-link.active {
     @apply text-foreground after:w-full;
+  }
+  
+  .glow {
+    @apply relative;
+  }
+  
+  .glow::before {
+    content: '';
+    @apply absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-30 transition-opacity duration-300 group-hover:opacity-70;
+    z-index: -1;
   }
 }
 
@@ -97,6 +112,26 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
   }
 }
 
@@ -121,3 +156,4 @@
   margin: 0 auto;
   padding: 0;
 }
+
