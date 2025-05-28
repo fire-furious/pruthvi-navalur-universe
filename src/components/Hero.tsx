@@ -12,7 +12,7 @@ const Hero = () => {
     
     const interval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-    }, 2000);
+    }, 1500);
     
     return () => clearInterval(interval);
   }, []);
@@ -28,7 +28,7 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col items-center justify-center relative px-4 md:px-8 overflow-hidden">
       {/* Animated Floating Shapes */}
       <div className="floating-shapes">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div 
             key={i}
             className="floating-shape"
@@ -39,8 +39,8 @@ const Hero = () => {
               background: `linear-gradient(45deg, 
                 hsl(${Math.random() * 360}, 70%, 60%), 
                 hsl(${Math.random() * 360}, 70%, 80%))`,
-              animationDelay: `${Math.random() * 20}s`,
-              animationDuration: `${15 + Math.random() * 10}s`
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${8 + Math.random() * 4}s`
             }}
           ></div>
         ))}
@@ -48,13 +48,13 @@ const Hero = () => {
 
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-gradient-to-br from-cyan-300/40 to-blue-300/40 rounded-full blur-3xl opacity-60 animate-pulse-subtle"></div>
-        <div className="absolute bottom-40 right-10 w-96 h-96 bg-gradient-to-br from-violet-300/40 to-purple-300/40 rounded-full blur-3xl opacity-50 animate-[pulse_8s_ease-in-out_infinite]"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-rose-300/40 to-pink-300/40 rounded-full blur-3xl opacity-40 animate-[pulse_12s_ease-in-out_infinite]"></div>
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-gradient-to-br from-cyan-300/40 to-blue-300/40 rounded-full blur-3xl opacity-60 animate-[pulse_3s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-40 right-10 w-96 h-96 bg-gradient-to-br from-violet-300/40 to-purple-300/40 rounded-full blur-3xl opacity-50 animate-[pulse_4s_ease-in-out_infinite]"></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-rose-300/40 to-pink-300/40 rounded-full blur-3xl opacity-40 animate-[pulse_5s_ease-in-out_infinite]"></div>
         
         {/* Animated particles */}
         <div className="absolute inset-0">
-          {[...Array(25)].map((_, i) => (
+          {[...Array(30)].map((_, i) => (
             <div 
               key={i}
               className="absolute rounded-full"
@@ -67,8 +67,8 @@ const Hero = () => {
                   hsl(${200 + Math.random() * 160}, 70%, 60%), 
                   hsl(${280 + Math.random() * 80}, 70%, 70%))`,
                 opacity: Math.random() * 0.6 + 0.4,
-                animation: `float ${Math.random() * 15 + 10}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`
+                animation: `float ${Math.random() * 8 + 6}s linear infinite`,
+                animationDelay: `${Math.random() * 3}s`
               }}
             ></div>
           ))}
