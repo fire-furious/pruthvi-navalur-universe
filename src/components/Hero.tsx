@@ -28,19 +28,21 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col items-center justify-center relative px-4 md:px-8 overflow-hidden">
       {/* Animated Floating Shapes */}
       <div className="floating-shapes">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(25)].map((_, i) => (
           <div 
             key={i}
             className="floating-shape"
             style={{
-              width: `${Math.random() * 60 + 20}px`,
-              height: `${Math.random() * 60 + 20}px`,
+              width: `${Math.random() * 80 + 30}px`,
+              height: `${Math.random() * 80 + 30}px`,
               left: `${Math.random() * 100}%`,
-              background: `linear-gradient(45deg, 
-                hsl(${Math.random() * 360}, 70%, 60%), 
-                hsl(${Math.random() * 360}, 70%, 80%))`,
+              background: `linear-gradient(${Math.random() * 360}deg, 
+                hsl(${Math.random() * 360}, 80%, 65%), 
+                hsl(${Math.random() * 360}, 85%, 75%),
+                hsl(${Math.random() * 360}, 90%, 80%))`,
               animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${8 + Math.random() * 4}s`
+              animationDuration: `${8 + Math.random() * 4}s`,
+              boxShadow: `0 0 ${Math.random() * 20 + 10}px rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.3)`
             }}
           ></div>
         ))}
@@ -48,27 +50,30 @@ const Hero = () => {
 
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-gradient-to-br from-cyan-300/40 to-blue-300/40 rounded-full blur-3xl opacity-60 animate-[pulse_3s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-40 right-10 w-96 h-96 bg-gradient-to-br from-violet-300/40 to-purple-300/40 rounded-full blur-3xl opacity-50 animate-[pulse_4s_ease-in-out_infinite]"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-rose-300/40 to-pink-300/40 rounded-full blur-3xl opacity-40 animate-[pulse_5s_ease-in-out_infinite]"></div>
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-gradient-to-br from-pink-400/50 to-purple-400/50 rounded-full blur-3xl opacity-70 animate-[pulse_2s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-40 right-10 w-96 h-96 bg-gradient-to-br from-cyan-400/50 to-blue-400/50 rounded-full blur-3xl opacity-60 animate-[pulse_3s_ease-in-out_infinite]"></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-yellow-400/50 to-orange-400/50 rounded-full blur-3xl opacity-50 animate-[pulse_4s_ease-in-out_infinite]"></div>
+        <div className="absolute top-1/2 left-10 w-80 h-80 bg-gradient-to-br from-green-400/50 to-teal-400/50 rounded-full blur-3xl opacity-40 animate-[pulse_5s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-20 left-1/3 w-56 h-56 bg-gradient-to-br from-red-400/50 to-pink-400/50 rounded-full blur-3xl opacity-45 animate-[pulse_3.5s_ease-in-out_infinite]"></div>
         
         {/* Animated particles */}
         <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
+          {[...Array(40)].map((_, i) => (
             <div 
               key={i}
               className="absolute rounded-full"
               style={{
-                width: `${Math.random() * 8 + 2}px`,
-                height: `${Math.random() * 8 + 2}px`,
+                width: `${Math.random() * 12 + 4}px`,
+                height: `${Math.random() * 12 + 4}px`,
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                background: `linear-gradient(45deg, 
-                  hsl(${200 + Math.random() * 160}, 70%, 60%), 
-                  hsl(${280 + Math.random() * 80}, 70%, 70%))`,
-                opacity: Math.random() * 0.6 + 0.4,
-                animation: `float ${Math.random() * 8 + 6}s linear infinite`,
-                animationDelay: `${Math.random() * 3}s`
+                background: `linear-gradient(${Math.random() * 360}deg, 
+                  hsl(${Math.random() * 360}, 85%, 70%), 
+                  hsl(${Math.random() * 360}, 90%, 80%))`,
+                opacity: Math.random() * 0.8 + 0.2,
+                animation: `float ${Math.random() * 6 + 4}s linear infinite`,
+                animationDelay: `${Math.random() * 2}s`,
+                boxShadow: `0 0 ${Math.random() * 15 + 5}px rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.4)`
               }}
             ></div>
           ))}
