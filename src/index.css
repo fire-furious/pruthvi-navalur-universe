@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --background: 280 20% 98%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 260 100% 65%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 199 89% 48%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 200 100% 70%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted: 280 30% 95%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 336 80% 58%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 320 100% 75%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 224 71% 4%;
+    --border: 280 20% 90%;
+    --input: 280 20% 90%;
+    --ring: 260 100% 65%;
 
     --radius: 0.75rem;
 
@@ -54,7 +54,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-foreground min-h-screen;
+    background-attachment: fixed;
   }
   
   .highlight {
@@ -62,7 +63,7 @@
   }
   
   .section-title {
-    @apply font-display text-3xl md:text-4xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+    @apply font-display text-3xl md:text-4xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600;
   }
   
   .section-subtitle {
@@ -71,21 +72,21 @@
   
   .section-subtitle::after {
     content: '';
-    @apply absolute -bottom-1 left-0 h-[2px] w-12 bg-primary;
+    @apply absolute -bottom-1 left-0 h-[2px] w-12 bg-gradient-to-r from-purple-500 to-pink-500;
   }
   
   .animated-gradient-text {
-    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent;
     background-size: 200% auto;
     animation: gradient 8s ease infinite;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2;
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-purple-200/50 hover:-translate-y-2;
   }
   
   .nav-link {
-    @apply relative px-1.5 py-1 font-medium text-foreground/70 transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full;
+    @apply relative px-1.5 py-1 font-medium text-foreground/70 transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:transition-all hover:after:w-full;
   }
   
   .nav-link.active {
@@ -98,7 +99,7 @@
   
   .glow::before {
     content: '';
-    @apply absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-30 transition-opacity duration-300 group-hover:opacity-70;
+    @apply absolute -inset-0.5 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-lg blur opacity-30 transition-opacity duration-300 group-hover:opacity-70;
     z-index: -1;
   }
 }
@@ -140,15 +141,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-background;
+  @apply bg-gradient-to-b from-blue-50 to-purple-50;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted rounded-full;
+  @apply bg-gradient-to-b from-purple-400 to-pink-400 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted/80;
+  @apply from-purple-500 to-pink-500;
 }
 
 #root {
@@ -156,4 +157,3 @@
   margin: 0 auto;
   padding: 0;
 }
-
